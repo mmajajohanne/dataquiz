@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Majas sin Quiz </title>
+    <link rel = "icon" href = 
+    "media\dataikon.png" 
+            type = "image/x-icon">
+        <style> 
+        body {
+            background-color: rgb(192, 235, 236);
+            font-family: "monospace";
+            margin: 10;
+        }
+        #idOverskrift {
+            color: lightyellow;
+            background-color: cadetblue;
+            padding: 5px;
+        }
+        #idInnhold {
+            background-color: rgb(108, 179, 182);
+            padding: 5px;
+        }    
+        #idSlutt {
+            color: lightyellow;
+            background-color: rgba(95, 158, 160, 0.829);
+            padding: 2px;
+        }
+        h1 {
+            text-decoration: underline;
+        } 
+        .button1 {
+            background-color: rgb(134, 204, 236); 
+            color: rgb(14, 4, 58); 
+            border: 2px solid #3893c9;
+            border-radius: 12px;
+        }
+        .button1:focus {
+            background-color: rgba(223, 110, 110, 0.959);
+            color: lightyellow;
+        }
+        .button2 {
+            background-color: rgb(134, 204, 236); 
+            color: rgb(14, 4, 58); 
+            border: 2px solid #3893c9;
+            border-radius: 12px;
+        }
+        .button2:focus {
+            background-color: seagreen;
+            color: lightyellow;
+        }
+        .button3 {
+            background-color: rgb(34, 32, 31);
+            color: lightyellow;
+            font-family: 'Franklin Gothic Medium';
+            font-size: medium;
+            border: 2px solid rgb(73, 62, 60);
+            border-radius: 20px;
+            width: 150px; 
+            height: 30px;
+        }
+        .button3:focus {
+            color: rgba(95, 158, 160, 0.829);
+        }
+        </style> 
+        
+
+        <!--- TELLER POENG (ikke helt ferdig) -->
+        <script>        
+            var poeng = 0;
+            var poeng_feil = 0;
+            var score = 0;
+
+            function riktig() {
+            poeng += 1;
+            document.getElementById("riktig").innerHTML = poeng;
+            };
+
+            function feil() {
+            poeng_feil -= 1;
+            document.getElementById("feil").innerHTML = poeng_feil;
+            };
+
+            function score() {
+            score = poeng + poeng_feil;
+            document.getElementById("sum").innerHTML = score;
+            };
+        </script>
+
+</head>
+<body>
+    <!-- DEFINERER ID TIL LYDFILENE-->
+    <audio id="idLydRiktig">
+        <source src="media/riktig.mp3" type="audio/mpeg">
+        </audio>
+    <audio id="idLydFeil">
+        <source src="media/feil.mp3" type="audio/mpeg">  
+        </audio>
+          
+    <!---- OVERSKRIFT-->
+    <div id="idOverskrift">
+        <h1> Maja sin Quiz ☻ </h1>
+    </div>
+    <p> </p>
+
+    <!--- SPØRSMÅL-->
+    <div id="idInnhold">
+        <p> &nbsp; </p>
+        <h2> Hva er HDD? </h2>
+        <button id ="idRiktig1" class="button button2" onClick="riktig()"> Et mekanisk lagringsmedium </button>
+        <button id="idFeil1" class="button button1" onClick="feil()"> Et elektronisk lagringsmedium </button>
+        <button id="idFeil2" class="button button1" onClick="feil()"> Et digitalt medium </button>
+
+        <h2> Hva står BIOS for? </h2>
+        <button id="idFeil3" class="button button1" onClick="feil()"> Biometric Input/ Output Science </button>
+        <button id="idFeil4" class="button button1" onClick="feil()"> Basic Influx Outside Service </button>
+        <button id="idRiktig2" class="button button2" onClick="riktig()"> Basic Input/ Output System </button>
+
+        <h2> Hva er USB et eksempel på? </h2>
+        <button id="idFeil5" class="button button1" onClick="feil()"> En programvare </button>
+        <button id="idRiktig3" class="button button2" onClick="riktig()"> En standard </button>
+        <button id="idFeil6" class="button button1" onClick="feil()"> Et skjermkort </button>
+
+        <h2> Hva gjør grafikkortet? </h2>
+        <button id="idRiktig4" class="button button2" onClick="riktig()"> Behandler informasjon fra prosessoren før det vises på skjermen </button>
+        <button id="idFeil7" class="button button1" onClick="feil()"> Kjøler ned prosessoren før et program åpnes </button>
+        <button id="idFeil8" class="button button1" onClick="feil()"> Utfører beregninger basert å det binære tallsystemet </button>
+        <p> &nbsp; </p>
+    </div>
+    
+        <!---- SKRIVER UT POENG TIL SIDEN (ikke ferdig:)) -->
+    <p> </p>
+    <div id="idSlutt">
+        <h3> POENG: <a id="riktig"> 0 </a> av 4 </h3>
+        <!-- <h3> FEIL: <a id="feil"> 0 </a> </h3>
+        <h3> SUM: <a id= "sum"> 0 </a> av x </h3> --->
+
+        <button class="button button3" onclick="history.go(0)"> Prøv på nytt </button>
+        <p> </p>
+    </div>
+
+
+    <!--- DEFINERER VARIABLENE I JAVASCRIPT -->
+ <script>
+    var knapp1El = document.getElementById("idRiktig1")
+    var knapp2El = document.getElementById("idRiktig2")
+    var knapp3El = document.getElementById("idRiktig3")
+    var knapp4El = document.getElementById("idRiktig4")
+
+    var knapp1FEl = document.getElementById("idFeil1")
+    var knapp2FEl = document.getElementById("idFeil2")
+    var knapp3FEl = document.getElementById("idFeil3")
+    var knapp4FEl = document.getElementById("idFeil4")
+    var knapp5FEl = document.getElementById("idFeil5")
+    var knapp6FEl = document.getElementById("idFeil6")
+    var knapp7FEl = document.getElementById("idFeil7")
+    var knapp8FEl = document.getElementById("idFeil8")
+
+    var LydEl = document.getElementById("idLydRiktig")
+    var LydFEl = document.getElementById("idLydFeil")
+
+    knapp1El.addEventListener("click", riktigfunk)
+    knapp2El.addEventListener("click", riktigfunk)
+    knapp3El.addEventListener("click", riktigfunk)
+    knapp4El.addEventListener("click", riktigfunk)
+
+    knapp1FEl.addEventListener("click", feilfunk)
+    knapp2FEl.addEventListener("click", feilfunk)
+    knapp3FEl.addEventListener("click", feilfunk)
+    knapp4FEl.addEventListener("click", feilfunk)
+    knapp5FEl.addEventListener("click", feilfunk)
+    knapp6FEl.addEventListener("click", feilfunk)
+    knapp7FEl.addEventListener("click", feilfunk)
+    knapp8FEl.addEventListener("click", feilfunk)
+
+
+    // DEFINERER FUNKSJONER FOR RIKTIG OG FEIL SVAR
+    function riktigfunk(event) {
+        event.target.innerHTML += " - RIKTIG"
+        event.target.removeEventListener("click",riktigfunk)
+        LydEl.play()
+    }
+
+    function feilfunk(event) {
+        event.target.innerHTML += " - FEIL" 
+        event.target.removeEventListener("click", feilfunk)
+        LydFEl.play()
+    }
+</script>
+</body>
+</html>
